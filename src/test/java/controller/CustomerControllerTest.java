@@ -37,6 +37,9 @@ public class CustomerControllerTest {
     @InjectMocks
     private CustomerController customerController;
 
+    private String mockJsonData = "{ \"id\": 1, \"firstName\": \"John\", \"lastName\": \"Doe\", \"email\": \"johndoe@example.com\" }";
+
+
     @Before
     public void setUp() {
         mockMvc = MockMvcBuilders.standaloneSetup(customerController).build();
@@ -78,7 +81,7 @@ public class CustomerControllerTest {
 
         mockMvc.perform(post("/customers")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content("{ \"id\": 1, \"name\": \"John Doe\", \"email\": \"johndoe@example.com\" }"))
+                        .content(mockJsonData))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.id", is(1)))
                 .andExpect(jsonPath("$.firstName", is("John")))
@@ -95,7 +98,7 @@ public class CustomerControllerTest {
 
         mockMvc.perform(put("/customers")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content("{ \"id\": 1, \"name\": \"John Doe\", \"email\": \"johndoe@example.com\" }"))
+                        .content(mockJsonData))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.id", is(1)))
                 .andExpect(jsonPath("$.firstName", is("John")))
