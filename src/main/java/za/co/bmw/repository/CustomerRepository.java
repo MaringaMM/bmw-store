@@ -6,7 +6,5 @@ import za.co.bmw.entities.Customer;
 
 @Repository
 public interface CustomerRepository extends JpaRepository<Customer, Long> {
-    //List<Customer> findByLastName(String lastName);
-    // You can add custom methods specific to this repository here
 }
 

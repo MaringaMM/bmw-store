@@ -6,5 +6,4 @@ import za.co.bmw.entities.Product;
 
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long> {
-    // You can add custom methods specific to this repository here
 }
