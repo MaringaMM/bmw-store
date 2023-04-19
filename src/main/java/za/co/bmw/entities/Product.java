@@ -22,6 +22,4 @@ public class Product {
     private String description;
     @Column(name = "price")
     private double price;
-
-    // Constructor, getters, and setters
 }
