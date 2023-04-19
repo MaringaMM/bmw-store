@@ -32,7 +32,7 @@ public class Order {
     private List<Product> products;
 
     @Column(name = "total_price")
-    private BigDecimal totalPrice;
+    private double totalPrice;
 
     @Column(name = "order_date")
         private Date orderDate;

@@ -12,7 +12,6 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import za.co.bmw.controller.OrderController;
 import za.co.bmw.entities.Customer;
 import za.co.bmw.entities.Order;
-import za.co.bmw.entities.Product;
 import za.co.bmw.service.OrderService;
 
 import java.util.ArrayList;
@@ -51,14 +50,8 @@ public class OrderControllerTest {
     @Test
     public void testGetAllOrders() throws Exception {
         List<Order> orders = Arrays.asList(
-                new Order(1L, , 100.0, List.of("Rolls Royce", "320i", "M3"), 100.00, new Date());
-
-//        private Long id;
-//        private Customer customerId;
-//        private List<Product> products;
-//        private double totalPrice;
-//        private Date orderDate;
-    }
+            new Order(1L, new Customer() , new ArrayList<>(), 100.0 , new Date()),
+            new Order(1L, new Customer() , new ArrayList<>(), 100.0 , new Date())
         );
 
         when(orderService.getAllOrders()).thenReturn(orders);
@@ -70,7 +63,7 @@ public class OrderControllerTest {
 
     @Test
     public void testGetOrderById() throws Exception {
-        Order order = new Order(1L, new Date(), 100.0, new Customer(), new ArrayList<>(), new ArrayList<>());
+        Order order = new Order();
 
         when(orderService.getOrderById(1L)).thenReturn(order);
 
@@ -82,7 +75,7 @@ public class OrderControllerTest {
 
     @Test
     public void testCreateOrder() throws Exception {
-        Order order = new Order(1L, new Date(), 100.0, new Customer(), new ArrayList<>(), new ArrayList<>());
+        Order order = new Order(1L, new Customer() , new ArrayList<>(), 100.0 , new Date());
 
         when(orderService.createOrder(order)).thenReturn(order);
 
@@ -96,9 +89,9 @@ public class OrderControllerTest {
 
     @Test
     public void testUpdateOrder() throws Exception {
-        Order order = new Order(1L, , new ArrayList<>(), 100.00, new Date());
+        Order order = new Order(1L, new Customer() , new ArrayList<>(), 100.0 , new Date());
 
-        when(orderService.updateOrder(order)).thenReturn(order);
+        when(orderService.updateOrder(1L, order)).thenReturn(order);
 
         mockMvc.perform(put("/orders")
                         .contentType(MediaType.APPLICATION_JSON)
