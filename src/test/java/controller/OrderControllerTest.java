@@ -14,6 +14,7 @@ import za.co.bmw.entities.Customer;
 import za.co.bmw.entities.Order;
 import za.co.bmw.service.OrderService;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -42,6 +43,10 @@ public class OrderControllerTest {
     @InjectMocks
     private OrderController orderController;
 
+    private String mockJsonData = String.format("{ \"id\": 1, \"totalPrice\": 100.0 }, \"orderDate\": %s", new Date());
+    private String mockUpdateJsonData = String.format("{ \"id\": 1, \"totalPrice\": 100.0 }, \"orderDate\": %s", LocalDate.now().minusDays(1));
+
+
     @Before
     public void setUp() {
         mockMvc = MockMvcBuilders.standaloneSetup(orderController).build();
@@ -51,7 +56,7 @@ public class OrderControllerTest {
     public void testGetAllOrders() throws Exception {
         List<Order> orders = Arrays.asList(
             new Order(1L, new Customer() , new ArrayList<>(), 100.0 , new Date()),
-            new Order(1L, new Customer() , new ArrayList<>(), 100.0 , new Date())
+            new Order(2L, new Customer() , new ArrayList<>(), 120.0 , new Date())
         );
 
         when(orderService.getAllOrders()).thenReturn(orders);
@@ -81,7 +86,7 @@ public class OrderControllerTest {
 
         mockMvc.perform(post("/orders")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content("{ \"id\": 1, \"total\": 100.0 }"))
+                        .content(mockJsonData))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.id", is(1)))
                 .andExpect(jsonPath("$.total", is(100.0)));
@@ -95,10 +100,10 @@ public class OrderControllerTest {
 
         mockMvc.perform(put("/orders")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content("{ \"id\": 1, \"total\": 100.0 }"))
+                        .content(mockUpdateJsonData))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.id", is(1)))
-                .andExpect(jsonPath("$.total", is(100.0)));
+                .andExpect(jsonPath("$.total", is(120.0)));
     }
 
     @Test

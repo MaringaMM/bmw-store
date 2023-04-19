@@ -37,7 +37,8 @@ public class CustomerControllerTest {
     @InjectMocks
     private CustomerController customerController;
 
-    private String mockJsonData = "{ \"id\": 1, \"firstName\": \"John\", \"lastName\": \"Doe\", \"email\": \"johndoe@example.com\" }";
+    private String mockJsonData = "{ \"id\": 1, \"firstName\": \"Musa\", \"lastName\": \"Maringa\", \"email\": \"king@gmail.com\" }";
+    private String mockUpdateJsonData = "{ \"id\": 1, \"firstName\": \"Musa\", \"lastName\": \"Maringa\", \"email\": \"cube.musa@gmail.com\" }";
 
 
     @Before
@@ -49,7 +50,7 @@ public class CustomerControllerTest {
     public void testGetAllCustomers() throws Exception {
         List<Customer> customers = Arrays.asList(
                 new Customer(1L, "John", "Doe", "johndoe@example.com"),
-                new Customer(2L, "Jane", "Smith", "janesmith@example.com")
+                new Customer(2L, "Jane", "Smith", "janesmith@gmail.com")
         );
 
         when(customerService.getAllCustomers()).thenReturn(customers);
@@ -61,21 +62,21 @@ public class CustomerControllerTest {
 
     @Test
     public void testGetCustomerById() throws Exception {
-        Customer customer = new Customer(1L, "John", "Doe", "johndoe@example.com");
+        Customer customer = new Customer(1L, "Musa", "Maringa", "king@gmail.com");
 
         when(customerService.getCustomerById(1L)).thenReturn(customer);
 
         mockMvc.perform(get("/customers/1"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.id", is(1)))
-                .andExpect(jsonPath("$.firstName", is("John")))
-                .andExpect(jsonPath("$.lastName", is("Doe")))
-                .andExpect(jsonPath("$.email", is("johndoe@example.com")));
+                .andExpect(jsonPath("$.firstName", is("Musa")))
+                .andExpect(jsonPath("$.lastName", is("Maringa")))
+                .andExpect(jsonPath("$.email", is("king@gmail.com")));
     }
 
     @Test
     public void testCreateCustomer() throws Exception {
-        Customer customer = new Customer(1L, "John", "Doe", "johndoe@example.com");
+        Customer customer = new Customer(1L, "Musa", "Maringa", "king@gmail.com");
 
         when(customerService.createCustomer(customer)).thenReturn(customer);
 
@@ -84,26 +85,26 @@ public class CustomerControllerTest {
                         .content(mockJsonData))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.id", is(1)))
-                .andExpect(jsonPath("$.firstName", is("John")))
-                .andExpect(jsonPath("$.lastName", is("Doe")))
-                .andExpect(jsonPath("$.email", is("johndoe@example.com")));
+                .andExpect(jsonPath("$.firstName", is("Musa")))
+                .andExpect(jsonPath("$.lastName", is("Maringa")))
+                .andExpect(jsonPath("$.email", is("king@gmail.com")));
     }
 
     @Test
     public void testUpdateCustomer() throws Exception {
-        Customer customer = new Customer(1L, "John", "Doe", "johndoe@example.com");
+        Customer customer = new Customer(1L, "Musa", "Maringa", "cube.musa@gmail.com");
 
 
         when(customerService.updateCustomer(1L, customer)).thenReturn(customer);
 
         mockMvc.perform(put("/customers")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content(mockJsonData))
+                        .content(mockUpdateJsonData))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.id", is(1)))
-                .andExpect(jsonPath("$.firstName", is("John")))
-                .andExpect(jsonPath("$.lastName", is("Doe")))
-                .andExpect(jsonPath("$.email", is("johndoe@example.com")));
+                .andExpect(jsonPath("$.firstName", is("Musa")))
+                .andExpect(jsonPath("$.lastName", is("Maringa")))
+                .andExpect(jsonPath("$.email", is("cube.musa@gmail.com")));
     }
 
     @Test
