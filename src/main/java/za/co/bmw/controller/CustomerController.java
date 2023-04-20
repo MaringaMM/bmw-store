@@ -3,7 +3,7 @@ package za.co.bmw.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import za.co.bmw.entities.Customer;
+import za.co.bmw.entity.Customer;
 import za.co.bmw.service.CustomerService;
 
 import java.net.URI;

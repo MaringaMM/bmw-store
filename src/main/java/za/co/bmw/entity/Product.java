@@ -1,4 +1,4 @@
-package za.co.bmw.entities;
+package za.co.bmw.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

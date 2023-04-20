@@ -10,8 +10,8 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import za.co.bmw.controller.OrderController;
-import za.co.bmw.entities.Customer;
-import za.co.bmw.entities.Order;
+import za.co.bmw.entity.Customer;
+import za.co.bmw.entity.Order;
 import za.co.bmw.service.OrderService;
 
 import java.time.LocalDate;

@@ -1,6 +1,5 @@
 package controller;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Before;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -9,10 +8,9 @@ import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.ResultMatcher;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import za.co.bmw.controller.ProductController;
-import za.co.bmw.entities.Product;
+import za.co.bmw.entity.Product;
 import za.co.bmw.exception.RestExceptionHandler;
 import za.co.bmw.service.ProductService;
 

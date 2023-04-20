@@ -3,7 +3,7 @@ package za.co.bmw.service;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import za.co.bmw.entities.Customer;
+import za.co.bmw.entity.Customer;
 import za.co.bmw.repository.CustomerRepository;
 
 import java.util.List;

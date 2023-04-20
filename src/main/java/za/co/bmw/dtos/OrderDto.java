@@ -4,8 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import za.co.bmw.entities.Customer;
-import za.co.bmw.entities.Product;
+import za.co.bmw.entity.Customer;
+import za.co.bmw.entity.Product;
 
 import java.util.Date;
 import java.util.List;

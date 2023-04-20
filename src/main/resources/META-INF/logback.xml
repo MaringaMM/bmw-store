@@ -1,0 +1,59 @@
+<logger name="org.eclipse.jetty.plus.jndi">
+    <level value="debug" />
+</logger>
+
+<logger name="org.eclipse.jetty.jndi">
+    <level value="debug" />
+</logger>
+
+<logger name="org.eclipse.jetty.webapp.WebAppContext">
+    <level value="debug" />
+</logger>
+
+<logger name="org.eclipse.jetty.util.component.AbstractLifeCycle">
+    <level value="debug" />
+</logger>
+
+<logger name="org.eclipse.jetty.util.log">
+    <level value="debug" />
+</logger>
+
+<logger name="org.eclipse.jetty.server.Server">
+    <level value="debug" />
+</logger>
+
+<logger name="org.eclipse.jetty.server.handler.ContextHandler">
+    <level value="debug" />
+</logger>
+
+<logger name="org.eclipse.jetty.servlet.ServletHandler">
+    <level value="debug" />
+</logger>
+
+<logger name="org.eclipse.jetty.webapp.AbstractConfiguration">
+    <level value="debug" />
+</logger>
+
+<logger name="org.eclipse.jetty.webapp.Configuration">
+    <level value="debug" />
+</logger>
+
+<logger name="org.eclipse.jetty.plus.jndi.Resource">
+    <level value="debug" />
+</logger>
+
+<logger name="org.hibernate.dialect.SQLiteDialect">
+    <level value="debug" />
+</logger>
+
+<logger name="org.sqlite.JDBC">
+    <level value="debug" />
+</logger>
+
+<logger name="org.hibernate.type.descriptor.sql.BasicBinder">
+    <level value="trace" />
+</logger>
+
+<logger name="org.springframework.jdbc.core.JdbcTemplate">
+    <level value="debug" />
+</logger>

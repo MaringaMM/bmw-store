@@ -10,7 +10,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import za.co.bmw.controller.CustomerController;
-import za.co.bmw.entities.Customer;
+import za.co.bmw.entity.Customer;
 import za.co.bmw.service.CustomerService;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;

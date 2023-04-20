@@ -3,7 +3,7 @@ package za.co.bmw.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.co.bmw.exception.ResourceNotFoundException;
-import za.co.bmw.entities.Order;
+import za.co.bmw.entity.Order;
 import za.co.bmw.repository.OrderRepository;
 
 import java.util.List;
